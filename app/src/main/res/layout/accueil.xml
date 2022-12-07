@@ -17,9 +17,14 @@
 
             <TextView
                 android:id="@+id/message_accueil"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="394dp"
+                android:layout_height="114dp"
+                android:layout_marginLeft="@dimen/fab_margin"
+                android:layout_marginTop="@dimen/fab_margin"
+                android:layout_marginRight="@dimen/fab_margin"
                 android:layout_weight="1"
+                android:background="#03A9F4"
+                android:gravity="center|center_horizontal|center_vertical"
                 android:text="Bonjour trucmuche de la société trucmuche" />
         </LinearLayout>
 
@@ -51,9 +56,10 @@
 
                 <TextView
                     android:id="@+id/txt_immatriculation"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:gravity="center|center_horizontal|center_vertical"
                     android:text="Veuillez saisir la plaque d'immatriculation : " />
 
             </LinearLayout>
@@ -64,11 +70,20 @@
                 android:layout_weight="1"
                 android:orientation="vertical">
 
-                <TextView
+                <EditText
                     android:id="@+id/immatriculation"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Je suis une plaque d'immatriculation saisi par l'utilisateur" />
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/fab_margin"
+                    android:layout_marginRight="@dimen/fab_margin"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:fontFamily="cursive"
+                    android:gravity="center|center_horizontal|center_vertical"
+                    android:inputType="textPersonName"
+                    android:text="xx-xxx-xx" />
+
             </LinearLayout>
 
         </LinearLayout>
@@ -83,7 +98,10 @@
                 android:id="@+id/btn_immatriculation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/fab_margin"
+                android:layout_marginRight="@dimen/fab_margin"
                 android:layout_weight="1"
+                android:backgroundTint="#F44336"
                 android:text="Chercher la plaque d'immatriculation" />
         </LinearLayout>
     </LinearLayout>
