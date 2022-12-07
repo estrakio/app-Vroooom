@@ -24,9 +24,9 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
                 Intent intent = new Intent(getApplicationContext(), Login.class);
 
-                //startActivity(intent);
-                setContentView(R.layout.login);
-                //finish();
+                startActivity(intent);
+                //setContentView(R.layout.login);
+                finish();
             }
         };
         new Handler().postDelayed(runnable,3000);
