@@ -1,5 +1,6 @@
 package com.applivroooom;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.util.Log;
@@ -14,16 +15,22 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.applivroooom.outils.AccesHTTP;
+import com.applivroooom.outils.AsyncResponse;
+
 import org.json.JSONArray;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
-public class Login extends AppCompatActivity {
+public class Login extends AppCompatActivity implements AsyncResponse {
 
     private EditText username;
     private EditText password;
     private static AccesDistant accesDistant;
+    private static final String LOGINADDR = "http://192.168.1.6/appMobile/login.php";
+
 
 
     @Override
@@ -56,10 +63,38 @@ public class Login extends AppCompatActivity {
                 //JSONArray json_array = new JSONArray(list);
                 Log.d("test", "onClick: "+ list);
 
-                accesDistant.login(list);
+                requestLogin(list);
 
             }
         });
+    }
+
+
+    public void requestLogin(ArrayList donnee) {
+        Log.d("request", "envoi: "+ donnee.get(0));
+
+        AccesHTTP accesDonnees = new AccesHTTP();
+        accesDonnees.delegate = this;
+
+        accesDonnees.addParams("login", donnee.get(0).toString());
+        accesDonnees.addParams("password", donnee.get(1).toString());
+
+        accesDonnees.execute(LOGINADDR);
+    }
+
+    @Override
+    public void processFinish(String output) {
+        Log.d("serveurlogin", "processFinish: "+ output);
+
+        String message = output;
+
+        if (Objects.equals(message, "{\"login\":\"True\"}")) {
+            Log.d("login", "login successful");
+
+            Intent intent = new Intent(getApplicationContext(), Accueil.class);
+            startActivity(intent);
+            finish();
+        }
     }
 
 }

@@ -1,6 +1,10 @@
 package com.applivroooom;
 
+import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.applivroooom.outils.AccesHTTP;
 import com.applivroooom.outils.AsyncResponse;
@@ -14,6 +18,7 @@ public class AccesDistant implements AsyncResponse {
 
     public AccesDistant() {
         super();
+
     }
 
     
@@ -25,6 +30,8 @@ public class AccesDistant implements AsyncResponse {
 
         if (Objects.equals(message, "True")) {
             Log.d("login", "login successful");
+
+
         }
     }
 

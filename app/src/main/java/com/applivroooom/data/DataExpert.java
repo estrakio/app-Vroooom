@@ -1,6 +1,5 @@
-package com.applivroooom;
+package com.applivroooom.data;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 

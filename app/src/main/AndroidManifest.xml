@@ -32,6 +32,7 @@
             android:name=".Login"
             android:exported="true">
         </activity>
+        <activity android:name="com.applivroooom.Accueil" />
 
     </application>
     <uses-permission android:name="android.permission.INTERNET"/>
