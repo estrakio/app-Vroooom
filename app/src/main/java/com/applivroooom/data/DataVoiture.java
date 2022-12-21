@@ -20,7 +20,7 @@ public class DataVoiture {
 
         try {
             JSONObject mainObject = new JSONObject(data);
-            JSONObject ExpertJson = mainObject.getJSONObject("login");
+            JSONObject ExpertJson = mainObject.getJSONObject("dataVehicule");
             this.plaque_d_immatriculation = ExpertJson.getString("plaque_d_immatriculation");
             this.couleur = ExpertJson.getString("couleur");
             this.nommodele = ExpertJson.getString("nommodele");
@@ -44,7 +44,39 @@ public class DataVoiture {
         return instance;
     }
 
+    public String getPlaque_d_immatriculation() {
+        return plaque_d_immatriculation;
+    }
 
+    public String getCouleur() {
+        return couleur;
+    }
 
+    public String getNommodele() {
+        return nommodele;
+    }
 
+    public String getNom() {
+        return nom;
+    }
+
+    public String getPrenom() {
+        return prenom;
+    }
+
+    public String getDatedebutlocation() {
+        return datedebutlocation;
+    }
+
+    public String getDureelocation() {
+        return dureelocation;
+    }
+
+    public String getDatefinlocation() {
+        return datefinlocation;
+    }
+
+    public String getIdmarque() {
+        return idmarque;
+    }
 }

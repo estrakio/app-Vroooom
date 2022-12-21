@@ -13,6 +13,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.applivroooom.data.DataExpert;
+import com.applivroooom.data.DataVoiture;
 import com.applivroooom.outils.AccesHTTP;
 import com.applivroooom.outils.AsyncResponse;
 
@@ -54,13 +55,11 @@ public class Accueil extends AppCompatActivity implements AsyncResponse {
         btnImmatriculation.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-                String plaque = immatriculation.toString();
+                String plaque = immatriculation.getText().toString();
 
-                //JSONArray json_array = new JSONArray(list);
                 Log.d("plaque", "onClick: "+ plaque);
 
                 requestVehicule(plaque);
-
             }
         });
     }
@@ -84,18 +83,18 @@ public class Accueil extends AppCompatActivity implements AsyncResponse {
             JSONObject reponse = new JSONObject(output);
 
             if (!reponse.getString("dataVehicule").equals("False")) {
-                Log.d("plaque", "login successful");
+                Log.d("plaque", "plaque successful");
 
-                //DataExpert dataExpert = DataExpert.getInstance(output);
+                DataVoiture dataVoiture = DataVoiture.getInstance(output);
 
-                Log.d("plaque success", "nom Expert: " + dataExpert.getNom());
-                Log.d("plaque success", "prenom Expert: " + dataExpert.getPrenom());
+                Log.d("plaque success", "couleur: " + dataVoiture.getCouleur());
+                Log.d("plaque success", "nom prenom: " + dataVoiture.getNom()+dataVoiture.getPrenom());
 
-                //Intent intent = new Intent(getApplicationContext(), Accueil.class);
-                //startActivity(intent);
+                Intent intent = new Intent(getApplicationContext(), Identification_plaque.class);
+                startActivity(intent);
                 finish();
             } else {
-                Toast.makeText(this, "Mot de passe ou indentifiant incorect", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Plaque non reconnue", Toast.LENGTH_SHORT).show();
             }
         } catch (JSONException e) {
             e.printStackTrace();
