@@ -15,10 +15,13 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.applivroooom.data.DataExpert;
 import com.applivroooom.outils.AccesHTTP;
 import com.applivroooom.outils.AsyncResponse;
 
 import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,7 +57,6 @@ public class Login extends AppCompatActivity implements AsyncResponse {
     private void ecouteLogin() {
         ((Button) findViewById(R.id.button_login)).setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Toast.makeText(Login.this, password.getText(), Toast.LENGTH_SHORT).show();
 
                 ArrayList list = new ArrayList();
                 list.add(username.getText());
@@ -71,7 +73,19 @@ public class Login extends AppCompatActivity implements AsyncResponse {
 
 
     public void requestLogin(ArrayList donnee) {
-        Log.d("request", "envoi: "+ donnee.get(0));
+        Log.d("request", "requestLogin: "+ donnee.get(0));
+
+        AccesHTTP accesDonnees = new AccesHTTP();
+        accesDonnees.delegate = this;
+
+        accesDonnees.addParams("login", donnee.get(0).toString());
+        accesDonnees.addParams("password", donnee.get(1).toString());
+
+        accesDonnees.execute(LOGINADDR);
+    }
+
+    public void requestExpert(ArrayList donnee) {
+        Log.d("request", "requestLogin: "+ donnee.get(0));
 
         AccesHTTP accesDonnees = new AccesHTTP();
         accesDonnees.delegate = this;
@@ -86,15 +100,29 @@ public class Login extends AppCompatActivity implements AsyncResponse {
     public void processFinish(String output) {
         Log.d("serveurlogin", "processFinish: "+ output);
 
-        String message = output;
+        try {
+            JSONObject reponse = new JSONObject(output);
 
-        if (Objects.equals(message, "{\"login\":\"True\"}")) {
-            Log.d("login", "login successful");
+            if (!reponse.getString("login").equals("False")) {
+                Log.d("login", "login successful");
 
-            Intent intent = new Intent(getApplicationContext(), Accueil.class);
-            startActivity(intent);
-            finish();
+                DataExpert dataExpert = DataExpert.getInstance(output);
+
+                Log.d("loginsuccess", "nom Expert: " + dataExpert.getNom());
+                Log.d("loginsuccess", "prenom Expert: " + dataExpert.getPrenom());
+
+                Intent intent = new Intent(getApplicationContext(), Accueil.class);
+                startActivity(intent);
+                finish();
+            } else {
+                Toast.makeText(this, "Mot de passe ou indentifiant incorect", Toast.LENGTH_SHORT).show();
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+            Log.d("erreur", "erreurJSON: " +e);
         }
+
+
     }
 
 }

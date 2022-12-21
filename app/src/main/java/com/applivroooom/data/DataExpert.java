@@ -11,15 +11,11 @@ public class DataExpert {
 
     private DataExpert( String data) {
 
-        JSONObject mainObject = null;
-        JSONObject ExpertJson = null;
-
         try {
-            mainObject = new JSONObject(data);
-            ExpertJson = mainObject.getJSONObject("1");
+            JSONObject mainObject = new JSONObject(data);
+            JSONObject ExpertJson = mainObject.getJSONObject("login");
             this.nom = ExpertJson.getString("nom");
             this.prenom = ExpertJson.getString("prenom");
-            this.societe = ExpertJson.getString("societe");
 
         } catch (JSONException e) {
             e.printStackTrace();
