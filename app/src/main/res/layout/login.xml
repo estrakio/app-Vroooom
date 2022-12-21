@@ -73,7 +73,7 @@
                         android:layout_gravity="center_vertical"
                         android:layout_weight="1"
                         android:ems="10"
-                        android:fontFamily="cursive"
+                        android:fontFamily="sans-serif"
                         android:inputType="textPersonName"
                         android:text="Login" />
                 </LinearLayout>

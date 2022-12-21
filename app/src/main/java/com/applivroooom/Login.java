@@ -31,7 +31,7 @@ public class Login extends AppCompatActivity implements AsyncResponse {
 
     private EditText username;
     private EditText password;
-    private static AccesDistant accesDistant;
+    private Button btnLogin;
     private static final String LOGINADDR = "http://192.168.1.6/appMobile/login.php";
 
 
@@ -46,16 +46,15 @@ public class Login extends AppCompatActivity implements AsyncResponse {
 
 
     private void init() {
-        username = (EditText) findViewById(R.id.username_text);
-        password = (EditText) findViewById(R.id.password_text);
-
-        accesDistant = new AccesDistant();
+        username = findViewById(R.id.username_text);
+        password = findViewById(R.id.password_text);
+        btnLogin = findViewById(R.id.button_login);
 
     }
 
 
     private void ecouteLogin() {
-        ((Button) findViewById(R.id.button_login)).setOnClickListener(new View.OnClickListener() {
+        btnLogin.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
                 ArrayList list = new ArrayList();
@@ -72,19 +71,7 @@ public class Login extends AppCompatActivity implements AsyncResponse {
     }
 
 
-    public void requestLogin(ArrayList donnee) {
-        Log.d("request", "requestLogin: "+ donnee.get(0));
-
-        AccesHTTP accesDonnees = new AccesHTTP();
-        accesDonnees.delegate = this;
-
-        accesDonnees.addParams("login", donnee.get(0).toString());
-        accesDonnees.addParams("password", donnee.get(1).toString());
-
-        accesDonnees.execute(LOGINADDR);
-    }
-
-    public void requestExpert(ArrayList donnee) {
+    private void requestLogin(ArrayList donnee) {
         Log.d("request", "requestLogin: "+ donnee.get(0));
 
         AccesHTTP accesDonnees = new AccesHTTP();

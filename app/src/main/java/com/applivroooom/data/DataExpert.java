@@ -7,7 +7,6 @@ public class DataExpert {
     private static DataExpert instance;
     private String nom;
     private String prenom;
-    private String societe;
 
     private DataExpert( String data) {
 
@@ -38,7 +37,4 @@ public class DataExpert {
         return prenom;
     }
 
-    public String getSociete() {
-        return societe;
-    }
 }
