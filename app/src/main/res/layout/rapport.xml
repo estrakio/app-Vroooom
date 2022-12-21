@@ -12,77 +12,58 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="1138dp"
             android:layout_weight="1"
-            android:orientation="horizontal">
+            android:orientation="horizontal"></LinearLayout>
 
-            <ScrollView
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:foregroundGravity="center"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|top"
+                android:layout_weight="1"
+                android:foregroundGravity="center"
+                android:gravity="center"
+                android:text="Ajouter une nouvelle expertise" />
+
+            <Button
+                android:id="@+id/button"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical" >
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/textView"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="TextView" />
-
-                    </LinearLayout>
-
-                    <TextView
-                        android:id="@+id/textView2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="TextView" />
-
-                    <TextView
-                        android:id="@+id/textView3"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="TextView" />
-
-                </LinearLayout>
-            </ScrollView>
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center"
+                android:layout_weight="1"
+                android:text="AJout" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:orientation="horizontal">
+            android:gravity="center"
+            android:orientation="vertical">
 
-            <Button
-                android:id="@+id/btn_ajout_expertise"
+            <TextView
+                android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Ajouter une expertise" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="horizontal">
+                android:text="Terminer et finir l'expertise" />
 
             <Button
-                android:id="@+id/btn_terminer_expertise"
-                android:layout_width="wrap_content"
+                android:id="@+id/button2"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Terminer et envoyer l'expertise" />
-
+                android:text="Envoyer" />
         </LinearLayout>
-
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
