@@ -35,6 +35,7 @@
         <activity android:name="com.applivroooom.Accueil" />
         <activity android:name="com.applivroooom.Identification_plaque" />
         <activity android:name="com.applivroooom.Rapport" />
+        <activity android:name="com.applivroooom.New_expertise" />
 
     </application>
     <uses-permission android:name="android.permission.INTERNET"/>

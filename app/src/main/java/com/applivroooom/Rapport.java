@@ -1,8 +1,11 @@
 package com.applivroooom;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,7 +24,8 @@ public class Rapport extends AppCompatActivity {
         setContentView(R.layout.rapport);
 
         init();
-        //ecouteConfiramtion();
+//        ecouteEnvoie();
+        ecouteCreateExpertise();
     }
 
     private void init() {
@@ -31,4 +35,20 @@ public class Rapport extends AppCompatActivity {
 
     }
 
+    private void ecouteEnvoie() {
+
+    }
+
+    private void ecouteCreateExpertise() {
+        btn_ajout.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+                Toast.makeText(Rapport.this, "exp", Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(getApplicationContext(), New_expertise.class);
+                startActivity(intent);
+//                finish();
+            }
+        });
+    }
 }
