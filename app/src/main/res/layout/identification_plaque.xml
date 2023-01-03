@@ -5,195 +5,198 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
-        android:layout_width="409dp"
-        android:layout_height="729dp"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="@dimen/fab_margin"
-                android:layout_marginTop="16dp"
-                android:layout_marginRight="@dimen/fab_margin"
-                android:layout_marginBottom="16dp"
+                android:layout_height="250dp"
                 android:layout_weight="1"
-                android:background="#2196F3"
-                android:backgroundTint="#73B3E6"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/fab_margin"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginRight="@dimen/fab_margin"
+                    android:layout_marginBottom="16dp"
+                    android:layout_weight="1"
+                    android:background="#2196F3"
+                    android:backgroundTint="#73B3E6"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="119dp"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:id="@+id/txt_client_nom"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:ems="10"
+                            android:inputType="none"
+                            android:text="Nom client"
+                            android:textColor="#000000" />
+
+                        <EditText
+                            android:id="@+id/txt_client_prenom"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:ems="10"
+                            android:inputType="none"
+                            android:text="Prenom client"
+                            android:textColor="#000000" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:textColor="#000000">
+
+                        <EditText
+                            android:id="@+id/txt_datedebutlocation"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:inputType="textPersonName"
+                            android:text="datedebutlocation"
+                            android:textColor="#000000" />
+
+                        <EditText
+                            android:id="@+id/txt_dureelocation"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:inputType="textPersonName"
+                            android:text="dureelocation"
+                            android:textColor="#000000" />
+
+                        <EditText
+                            android:id="@+id/txt_datefinlocation"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:inputType="textPersonName"
+                            android:text="datefinlocation"
+                            android:textColor="#000000" />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/fab_margin"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginRight="@dimen/fab_margin"
+                    android:layout_marginBottom="16dp"
+                    android:layout_weight="1"
+                    android:background="#8BC34A"
+                    android:backgroundTint="#98D39B"
+                    android:orientation="vertical">
+
+                    <EditText
+                        android:id="@+id/txt_plaque_d_immatriculation"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:ems="10"
+                        android:inputType="textPersonName"
+                        android:text="plaque_d_immatriculation"
+                        android:textColor="#000000" />
+
+                    <EditText
+                        android:id="@+id/txt_couleur"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:ems="10"
+                        android:inputType="textPersonName"
+                        android:text="couleur"
+                        android:textColor="#000000" />
+
+                    <EditText
+                        android:id="@+id/txt_idmarque"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:ems="10"
+                        android:inputType="textPersonName"
+                        android:text="idmarque"
+                        android:textColor="#000000" />
+
+                    <EditText
+                        android:id="@+id/txt_nommodele"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:ems="10"
+                        android:inputType="textPersonName"
+                        android:text="nommodele"
+                        android:textColor="#000000" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="230dp"
+                android:layout_weight="1"
                 android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="119dp"
-                    android:layout_weight="1"
-                    android:orientation="horizontal">
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
 
-                    <EditText
-                        android:id="@+id/txt_client_nom"
-                        android:layout_width="match_parent"
+                    <RadioButton
+                        android:id="@+id/rdbtnconfirm"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center|center_horizontal|center_vertical"
                         android:layout_weight="1"
-                        android:ems="10"
-                        android:inputType="none"
-                        android:text="Nom client"
-                        android:textColor="#000000" />
-
-                    <EditText
-                        android:id="@+id/txt_client_prenom"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:ems="10"
-                        android:inputType="none"
-                        android:textColor="#000000"
-                        android:text="Prenom client" />
+                        android:gravity="center|center_horizontal|center_vertical"
+                        android:text="je certifie avoir devant moi le bon vehicule et commence l'expertise" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:textColor="#000000"
-                    android:orientation="vertical">
+                    android:layout_weight="1">
 
-                    <EditText
-                        android:id="@+id/txt_datedebutlocation"
-                        android:layout_width="match_parent"
+                    <Button
+                        android:id="@+id/btn_confirmer"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:textColor="#000000"
-                        android:inputType="textPersonName"
-                        android:text="datedebutlocation" />
-
-                    <EditText
-                        android:id="@+id/txt_dureelocation"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:textColor="#000000"
-                        android:inputType="textPersonName"
-                        android:text="dureelocation" />
-
-                    <EditText
-                        android:id="@+id/txt_datefinlocation"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:textColor="#000000"
-                        android:inputType="textPersonName"
-                        android:text="datefinlocation" />
+                        android:layout_marginLeft="@dimen/fab_margin"
+                        android:layout_marginRight="@dimen/fab_margin"
+                        android:layout_weight="1"
+                        android:backgroundTint="#F44336"
+                        android:text="Confirmer"
+                        app:iconPadding="8dp" />
                 </LinearLayout>
-
             </LinearLayout>
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:layout_weight="1">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="@dimen/fab_margin"
-                android:layout_marginTop="16dp"
-                android:layout_marginRight="@dimen/fab_margin"
-                android:layout_marginBottom="16dp"
-                android:layout_weight="1"
-                android:background="#8BC34A"
-                android:backgroundTint="#98D39B"
-                android:orientation="vertical">
-
-                <EditText
-                    android:id="@+id/txt_plaque_d_immatriculation"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:textColor="#000000"
-                    android:ems="10"
-                    android:inputType="textPersonName"
-                    android:text="plaque_d_immatriculation" />
-
-                <EditText
-                    android:id="@+id/txt_couleur"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:textColor="#000000"
-                    android:ems="10"
-                    android:inputType="textPersonName"
-                    android:text="couleur" />
-
-                <EditText
-                    android:id="@+id/txt_idmarque"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:textColor="#000000"
-                    android:ems="10"
-                    android:inputType="textPersonName"
-                    android:text="idmarque" />
-
-                <EditText
-                    android:id="@+id/txt_nommodele"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:textColor="#000000"
-                    android:ems="10"
-                    android:inputType="textPersonName"
-                    android:text="nommodele" />
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
-
-                <RadioButton
-                    android:id="@+id/rdbtnconfirm"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center|center_horizontal|center_vertical"
-                    android:layout_weight="1"
-                    android:gravity="center|center_horizontal|center_vertical"
-                    android:text="je certifie avoir devant moi le bon vehicule et commence l'expertise" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
-
-                <Button
-                    android:id="@+id/btn_confirmer"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/fab_margin"
-                    android:layout_marginRight="@dimen/fab_margin"
-                    android:layout_weight="1"
-                    android:backgroundTint="#F44336"
-                    android:text="Confirmer"
-                    app:iconPadding="8dp" />
-            </LinearLayout>
-        </LinearLayout>
-    </LinearLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

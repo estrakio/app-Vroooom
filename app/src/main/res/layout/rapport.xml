@@ -14,7 +14,7 @@
         <LinearLayout
             android:id="@+id/lyt_list"
             android:layout_width="match_parent"
-            android:layout_height="1138dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:orientation="vertical">
 
@@ -36,7 +36,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:foregroundGravity="center"
             android:gravity="center"
             android:orientation="vertical">
@@ -65,7 +65,7 @@
             android:id="@+id/lyt_envoyer"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:gravity="center"
             android:orientation="vertical">
 
