@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/lyt_general"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/lyt_champ_piece"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txt_nom_piece"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Nom de la pièce concerné :" />
+
+            <EditText
+                android:id="@+id/edtxt_piece"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:gravity="center"
+                android:inputType="textPersonName"
+                android:text="Exemple" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lyt_description"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <AutoCompleteTextView
+                android:id="@+id/edtxt_description"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Veuillez renseignez la déscription de la pièce" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lyt_button"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btn_photo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ajouter une photo" />
+
+            <Button
+                android:id="@+id/btn_valider"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Valider" />
+        </LinearLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
