@@ -32,8 +32,7 @@ public class Login extends AppCompatActivity implements AsyncResponse {
     private EditText username;
     private EditText password;
     private Button btnLogin;
-    private static final String LOGINADDR = "http://192.168.225.13/appMobile/login.php";
-
+    private static final String LOGINADDR = "http://192.168.1.6/appMobile/login.php";
 
 
     @Override
@@ -72,7 +71,7 @@ public class Login extends AppCompatActivity implements AsyncResponse {
 
 
     private void requestLogin(ArrayList donnee) {
-        Log.d("request", "requestLogin: "+ donnee.get(0));
+        Log.d("request", "requestLogin: "+ donnee.get(0) + donnee.get(1));
 
         AccesHTTP accesDonnees = new AccesHTTP();
         accesDonnees.delegate = this;

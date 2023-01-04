@@ -2,14 +2,17 @@ package com.applivroooom;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.applivroooom.data.Dossier;
+import com.applivroooom.data.Expertise;
 
 public class New_expertise extends AppCompatActivity {
 
@@ -52,6 +55,22 @@ public class New_expertise extends AppCompatActivity {
 
                 Toast.makeText(New_expertise.this, "Envoie", Toast.LENGTH_SHORT).show();
 
+                Dossier dossier = Dossier.new_dossier();
+                Expertise expertise = Expertise.new_expertise();
+
+
+                expertise.setNom_piece(txt_piece.getText().toString());
+                Log.d("expertise", "onClick: "+ expertise.getNom_piece().toString());
+                expertise.setDescription(txt_description.getText().toString());
+                Log.d("expertise", "onClick: "+ expertise.getDescription().toString());
+//                expertise.setPhoto(btn_photo.getText().toString());
+
+                dossier.add_expertise(expertise);
+
+                Log.d("dossier", "onClick: "+ dossier.getList_expertise().get(0).getNom_piece().toString());
+
+                Intent intent = new Intent(getApplicationContext(), Rapport.class);
+                startActivity(intent);
                 finish();
             }
         });
