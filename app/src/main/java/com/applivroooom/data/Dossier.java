@@ -9,14 +9,21 @@ public class Dossier {
     private static Dossier instance;
     private ArrayList<Expertise> list_expertise;
 
-    private Dossier() {
+    private Dossier(String json) {
         list_expertise = new ArrayList<Expertise>();
 
+        // ObjectMapper instantiation
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        // Deserialization into the `Employee` class
+        Dossier dossier = objectMapper.readValue(json, Dossier.class);
+
+        System.out.println(dossier);
     }
 
-    public static synchronized Dossier new_dossier() {
+    public static synchronized Dossier new_dossier(String json) {
         if (instance == null) {
-            instance = new Dossier();
+            instance = new Dossier(json);
         }
         return instance;
     }
