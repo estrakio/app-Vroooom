@@ -2,6 +2,7 @@ package com.applivroooom;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -11,12 +12,22 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.applivroooom.data.DataVoiture;
 import com.applivroooom.data.Dossier;
 import com.applivroooom.data.Expertise;
+import com.applivroooom.outils.AccesHTTP;
+import com.applivroooom.outils.AsyncResponse;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class Rapport extends AppCompatActivity {
+public class Rapport extends AppCompatActivity implements AsyncResponse {
+    private static final String DOSSIERADR = "http://192.168.225.13/appMobile/createDossier.php";
 
     private Button btn_ajout;
     private Button btn_envoyer;
@@ -31,7 +42,7 @@ public class Rapport extends AppCompatActivity {
         setContentView(R.layout.rapport);
 
         init();
-//        ecouteEnvoie();
+        ecouteEnvoie();
         ecouteCreateExpertise();
     }
 
@@ -51,7 +62,7 @@ public class Rapport extends AppCompatActivity {
         for (Expertise expertise: ls) {
 
             TextView nom_piece = new TextView(this);
-            nom_piece.setText(expertise.getNom_piece().toString());
+            nom_piece.setText(expertise.getPiece().toString());
             nom_piece.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
 
             lyt_expertise.addView(nom_piece);
@@ -64,22 +75,73 @@ public class Rapport extends AppCompatActivity {
         }
     }
 
-    private void ecouteEnvoie() {
-
-    }
-
     private void ecouteCreateExpertise() {
         btn_ajout.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-
-                Toast.makeText(Rapport.this, "exp", Toast.LENGTH_SHORT).show();
-
-//                Expertise expertise = Expertise.getInstance();
+//                Toast.makeText(Rapport.this, "exp", Toast.LENGTH_SHORT).show();
 
                 Intent intent = new Intent(getApplicationContext(), New_expertise.class);
                 startActivity(intent);
                 finish();
             }
         });
+    }
+
+    private void ecouteEnvoie() {
+        btn_envoyer.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                if (dossier != null) {
+                    envoieDossier(dossier);
+                }
+            }
+        });
+    }
+
+    private void envoieDossier(Dossier dossier) {
+//        Log.d("request", "requestLogin: "+ donnee.get(0) + donnee.get(1));
+
+        AccesHTTP accesDonnees = new AccesHTTP();
+        accesDonnees.delegate = this;
+
+        ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
+        try {
+            String dossierJson = ow.writeValueAsString(dossier);
+
+            Log.d("doss", "envoieDossier: " + dossierJson);
+            Log.d("doss", "envoieDossier: "+ DataVoiture.getInstance(null).getPlaque_d_immatriculation().toString());
+
+            accesDonnees.addParams("dossier", dossierJson);
+            accesDonnees.addParams("plaque", DataVoiture.getInstance(null).getPlaque_d_immatriculation().toString());
+
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+
+        accesDonnees.execute(DOSSIERADR);
+    }
+
+    @Override
+    public void processFinish(String output) {
+        Log.d("serveurDossier", "processFinish: "+ output);
+
+        try {
+            JSONObject reponse = new JSONObject(output);
+
+            if (!reponse.getString("login").equals("False")) {
+                Log.d("dossier", "dossier sent successfuly");
+
+//                DataExpert dataExpert = DataExpert.getInstance(output);
+
+                Log.d("dossiersuccess", "dossier: " + output);
+
+            } else {
+                Toast.makeText(this, "erreur", Toast.LENGTH_SHORT).show();
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+            Log.d("erreur", "erreurJSON: " +e);
+        }
+
+
     }
 }

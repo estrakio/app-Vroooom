@@ -4,9 +4,9 @@ public class Expertise {
 
     private static Expertise instance;
 
-    private String nom_piece;
+    private String piece;
     private String description;
-    private String photo;
+    private String lienphoto;
 
     public Expertise() {
 
@@ -21,12 +21,12 @@ public class Expertise {
         return instance;
     }
 
-    public String getNom_piece() {
-        return nom_piece;
+    public String getPiece() {
+        return piece;
     }
 
-    public void setNom_piece(String nom_piece) {
-        instance.nom_piece = nom_piece;
+    public void setPiece(String piece) {
+        instance.piece = piece;
     }
 
     public String getDescription() {
@@ -37,11 +37,11 @@ public class Expertise {
         instance.description = description;
     }
 
-    public String getPhoto() {
-        return photo;
+    public String getLienphoto() {
+        return lienphoto;
     }
 
-    public void setPhoto(String photo) {
-        instance.photo = photo;
+    public void setLienphoto(String lienphoto) {
+        instance.lienphoto = lienphoto;
     }
 }

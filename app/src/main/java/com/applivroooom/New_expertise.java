@@ -53,21 +53,21 @@ public class New_expertise extends AppCompatActivity {
         btn_valider.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-                Toast.makeText(New_expertise.this, "Envoie", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(New_expertise.this, "Envoie", Toast.LENGTH_SHORT).show();
 
                 Dossier dossier = Dossier.new_dossier();
                 Expertise expertise = Expertise.new_expertise();
 
 
-                expertise.setNom_piece(txt_piece.getText().toString());
-                Log.d("expertise", "onClick: "+ expertise.getNom_piece().toString());
+                expertise.setPiece(txt_piece.getText().toString());
+                Log.d("expertise", "onClick: "+ expertise.getPiece().toString());
                 expertise.setDescription(txt_description.getText().toString());
                 Log.d("expertise", "onClick: "+ expertise.getDescription().toString());
-//                expertise.setPhoto(btn_photo.getText().toString());
+                expertise.setLienphoto(btn_photo.getText().toString());
 
                 dossier.add_expertise(expertise);
 
-                Log.d("dossier", "onClick: "+ dossier.getList_expertise().get(0).getNom_piece().toString());
+                Log.d("dossier", "onClick: "+ dossier.getList_expertise().get(0).getPiece().toString());
 
                 Intent intent = new Intent(getApplicationContext(), Rapport.class);
                 startActivity(intent);

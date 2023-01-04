@@ -46,7 +46,7 @@
                 android:id="@+id/edtxt_description"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Veuillez renseignez la déscription de la pièce" />
+                android:text="Veuillez renseignez la description de la piece" />
         </LinearLayout>
 
         <LinearLayout
