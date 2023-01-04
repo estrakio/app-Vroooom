@@ -27,7 +27,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class Rapport extends AppCompatActivity implements AsyncResponse {
-    private static final String DOSSIERADR = "http://192.168.225.13/appMobile/createDossier.php";
+    private static final String DOSSIERADR = "http://192.168.1.6/appMobile/createDossier.php";
 
     private Button btn_ajout;
     private Button btn_envoyer;
@@ -52,6 +52,7 @@ public class Rapport extends AppCompatActivity implements AsyncResponse {
         lyt_expertise = findViewById(R.id.lyt_scroll);
 
         dossier = Dossier.getInstance();
+        get_dossier();
 
         if (dossier != null) {
             affiche_les_expertise((ArrayList<Expertise>) dossier.getList_expertise());
@@ -120,6 +121,17 @@ public class Rapport extends AppCompatActivity implements AsyncResponse {
         accesDonnees.execute(DOSSIERADR);
     }
 
+    private void get_dossier() {
+//        Log.d("request", "requestLogin: "+ donnee.get(0) + donnee.get(1));
+
+        AccesHTTP accesDonnees = new AccesHTTP();
+        accesDonnees.delegate = this;
+
+        accesDonnees.addParams("plaque", DataVoiture.getInstance(null).getPlaque_d_immatriculation().toString());
+
+        accesDonnees.execute(DOSSIERADR);
+    }
+
     @Override
     public void processFinish(String output) {
         Log.d("serveurDossier", "processFinish: "+ output);
@@ -127,15 +139,15 @@ public class Rapport extends AppCompatActivity implements AsyncResponse {
         try {
             JSONObject reponse = new JSONObject(output);
 
-            if (!reponse.getString("login").equals("False")) {
+            if (reponse.getString("state").equals("get dossier")) {
                 Log.d("dossier", "dossier sent successfuly");
 
-//                DataExpert dataExpert = DataExpert.getInstance(output);
+                dossier = Dossier.new_dossier(output);
 
                 Log.d("dossiersuccess", "dossier: " + output);
 
-            } else {
-                Toast.makeText(this, "erreur", Toast.LENGTH_SHORT).show();
+//            } else if (reponse.getString("state").equals("pas de dossier")) {
+
             }
         } catch (JSONException e) {
             e.printStackTrace();
