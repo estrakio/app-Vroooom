@@ -2,9 +2,6 @@ package com.applivroooom.data;
 
 import android.util.Log;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -30,6 +27,8 @@ public class Dossier {
             if (Objects.equals(json, "null")) {
                 Log.d("doss", "new_dossier: "+ json);
                 instance = new Dossier();
+            } else {
+                instance.new_list_expertise = new ArrayList<Expertise>();
             }
         }
         return instance;
@@ -37,6 +36,10 @@ public class Dossier {
 
     public static synchronized Dossier getInstance() {
         return instance;
+    }
+
+    public void eraseInstance() {
+        instance = null;
     }
 
     public List<Expertise> getList_expertise() {

@@ -23,7 +23,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class Accueil extends AppCompatActivity implements AsyncResponse {
-    private static final String PLAQUEADDR = "http://192.168.225.13/appMobile/dataVehicule.php";
+    private static final String PLAQUEADDR = "http://192.168.1.6/appMobile/dataVehicule.php";
 
 
     private DataExpert dataExpert;

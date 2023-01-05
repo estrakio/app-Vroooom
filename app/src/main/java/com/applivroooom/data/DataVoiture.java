@@ -44,6 +44,10 @@ public class DataVoiture {
         return instance;
     }
 
+    public void eraseInstance() {
+        instance = null;
+    }
+
     public String getPlaque_d_immatriculation() {
         return plaque_d_immatriculation;
     }
