@@ -35,6 +35,8 @@ public class Rapport extends AppCompatActivity implements AsyncResponse {
 
     private Dossier dossier;
 
+    public ArrayList<Expertise> newExpertise;
+
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -51,12 +53,10 @@ public class Rapport extends AppCompatActivity implements AsyncResponse {
         btn_envoyer = findViewById(R.id.btn_envoyer);
         lyt_expertise = findViewById(R.id.lyt_scroll);
 
-        dossier = Dossier.getInstance();
+//        dossier = Dossier.getInstance();
         get_dossier();
 
-        if (dossier != null) {
-            affiche_les_expertise((ArrayList<Expertise>) dossier.getList_expertise());
-        }
+//        update_dossier();
     }
 
     private void affiche_les_expertise(ArrayList<Expertise> ls) {
@@ -142,18 +142,20 @@ public class Rapport extends AppCompatActivity implements AsyncResponse {
             if (reponse.getString("state").equals("get dossier")) {
                 Log.d("dossier", "dossier sent successfuly");
 
-                dossier = Dossier.new_dossier(output);
+                dossier = Dossier.new_dossier(reponse.getString("dossier"));
 
                 Log.d("dossiersuccess", "dossier: " + output);
 
-//            } else if (reponse.getString("state").equals("pas de dossier")) {
+                affiche_les_expertise((ArrayList<Expertise>) dossier.getList_expertise());
 
+            } else if (reponse.getString("state").equals("pas de dossier")) {
+                dossier = Dossier.new_dossier("null");
+
+                affiche_les_expertise((ArrayList<Expertise>) dossier.getList_expertise());
             }
         } catch (JSONException e) {
             e.printStackTrace();
             Log.d("erreur", "erreurJSON: " +e);
         }
-
-
     }
 }

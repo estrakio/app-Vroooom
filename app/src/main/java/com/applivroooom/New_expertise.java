@@ -55,7 +55,7 @@ public class New_expertise extends AppCompatActivity {
 
 //                Toast.makeText(New_expertise.this, "Envoie", Toast.LENGTH_SHORT).show();
 
-                Dossier dossier = Dossier.new_dossier(null);
+                Dossier dossier = Dossier.getInstance();
                 Expertise expertise = Expertise.new_expertise();
 
 

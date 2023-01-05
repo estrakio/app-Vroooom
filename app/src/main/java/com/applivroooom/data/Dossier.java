@@ -2,28 +2,33 @@ package com.applivroooom.data;
 
 import android.util.Log;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+
+import com.google.gson.Gson;
 
 public class Dossier {
     private static Dossier instance;
     private ArrayList<Expertise> list_expertise;
 
-    private Dossier(String json) {
+    private Dossier() {
         list_expertise = new ArrayList<Expertise>();
-
-        // ObjectMapper instantiation
-        ObjectMapper objectMapper = new ObjectMapper();
-
-        // Deserialization into the `Employee` class
-        Dossier dossier = objectMapper.readValue(json, Dossier.class);
-
-        System.out.println(dossier);
     }
 
     public static synchronized Dossier new_dossier(String json) {
+        Log.d("doss", "new_dossier: "+ json);
         if (instance == null) {
-            instance = new Dossier(json);
+//            Log.d("dosstest", "new_dossier: "+ json.toString());
+            instance = new Gson().fromJson(json, Dossier.class);
+
+            if (Objects.equals(json, "null")) {
+                Log.d("doss", "new_dossier: "+ json);
+                instance = new Dossier();
+            }
         }
         return instance;
     }
