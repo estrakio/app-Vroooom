@@ -27,7 +27,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class Rapport extends AppCompatActivity implements AsyncResponse {
-    private static final String DOSSIERADR = "http://192.168.1.6/appMobile/createDossier.php";
+    private static final String DOSSIERADR = "http://192.168.225.13/appMobile/createDossier.php";
 
     private Button btn_ajout;
     private Button btn_envoyer;
@@ -92,13 +92,13 @@ public class Rapport extends AppCompatActivity implements AsyncResponse {
         btn_envoyer.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 if (dossier != null) {
-                    envoieDossier(dossier);
+                    envoieDossier(dossier.getNew_list_expertise());
                 }
             }
         });
     }
 
-    private void envoieDossier(Dossier dossier) {
+    private void envoieDossier(ArrayList<Expertise> dossier) {
 //        Log.d("request", "requestLogin: "+ donnee.get(0) + donnee.get(1));
 
         AccesHTTP accesDonnees = new AccesHTTP();
@@ -151,7 +151,7 @@ public class Rapport extends AppCompatActivity implements AsyncResponse {
             } else if (reponse.getString("state").equals("pas de dossier")) {
                 dossier = Dossier.new_dossier("null");
 
-                affiche_les_expertise((ArrayList<Expertise>) dossier.getList_expertise());
+                affiche_les_expertise((ArrayList<Expertise>) dossier.getNew_list_expertise());
             }
         } catch (JSONException e) {
             e.printStackTrace();

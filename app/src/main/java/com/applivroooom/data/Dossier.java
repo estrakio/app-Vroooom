@@ -14,9 +14,11 @@ import com.google.gson.Gson;
 public class Dossier {
     private static Dossier instance;
     private ArrayList<Expertise> list_expertise;
+    private ArrayList<Expertise> new_list_expertise;
 
     private Dossier() {
         list_expertise = new ArrayList<Expertise>();
+        new_list_expertise = new ArrayList<Expertise>();
     }
 
     public static synchronized Dossier new_dossier(String json) {
@@ -41,8 +43,12 @@ public class Dossier {
         return list_expertise;
     }
 
+    public ArrayList<Expertise> getNew_list_expertise() {
+        return new_list_expertise;
+    }
+
     public void add_expertise(Expertise expertise) {
         Log.d("expertise test", "add_expertise: "+ expertise.getDescription().toString());
-        list_expertise.add(expertise);
+        new_list_expertise.add(expertise);
     }
 }

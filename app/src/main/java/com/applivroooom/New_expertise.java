@@ -67,7 +67,7 @@ public class New_expertise extends AppCompatActivity {
 
                 dossier.add_expertise(expertise);
 
-                Log.d("dossier", "onClick: "+ dossier.getList_expertise().get(0).getPiece().toString());
+                Log.d("dossier", "onClick: "+ dossier.getNew_list_expertise().get(0).getPiece().toString());
 
                 Intent intent = new Intent(getApplicationContext(), Rapport.class);
                 startActivity(intent);
