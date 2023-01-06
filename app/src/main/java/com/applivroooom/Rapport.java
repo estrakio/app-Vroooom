@@ -53,10 +53,7 @@ public class Rapport extends AppCompatActivity implements AsyncResponse {
         btn_envoyer = findViewById(R.id.btn_envoyer);
         lyt_expertise = findViewById(R.id.lyt_scroll);
 
-//        dossier = Dossier.getInstance();
         get_dossier();
-
-//        update_dossier();
     }
 
     private void affiche_les_expertise(ArrayList<Expertise> ls) {
