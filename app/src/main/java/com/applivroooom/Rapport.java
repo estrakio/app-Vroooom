@@ -27,7 +27,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class Rapport extends AppCompatActivity implements AsyncResponse {
-    private static final String DOSSIERADR = "http://192.168.1.6/appMobile/createDossier.php";
+    private static final String DOSSIERADR = "http://192.168.207.130/appMobile/createDossier.php";
 
     private Button btn_ajout;
     private Button btn_envoyer;
