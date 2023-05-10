@@ -37,5 +37,5 @@ cloner le repo
 </pre>
 - puis lancer l'ouvrir avec android studio
 - lancer [Projet Vroooom](https://github.com/estrakio/Projet-Vroom)
-- changer l'ip dans toute les pages ou cela est nécessaire
+- changer l'ip dans toute les pages ou cela est nécessaire (AccesDistant, Accueil, Login et Rapport)
 - puis lancer l'application mobile avec android studio
