@@ -17,8 +17,8 @@ application mobile qui fonctionne avec la partie web [Vroooom](https://github.co
 
 ## Quelques images du projet <a id="image"></a> 
 
-![alt text](https://github.com/ratataque/App_miel/blob/main/images_git/tableau_app.png?raw=true)
-![alt text](https://github.com/ratataque/App_miel/blob/main/images_git/app_miel.gif?raw=true)
+![alt text](https://github.com/estrakio/app-Vroooom/blob/main/images_git/application_1.gif?raw=true)
+![alt text](https://github.com/estrakio/app-Vroooom/blob/main/images_git/application_2.gif?raw=true)
 
 ***
 
