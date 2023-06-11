@@ -14,7 +14,7 @@ import java.util.Objects;
 
 public class AccesDistant implements AsyncResponse {
 
-    private static final String LOGINADDR = "http://192.168.225.13/appMobile/login.php";
+    private static final String LOGINADDR = "http://192.168.1.40/appMobile/login.php";
 
     public AccesDistant() {
         super();

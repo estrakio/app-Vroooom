@@ -20,7 +20,7 @@ import com.applivroooom.data.Expertise;
 
 import java.io.ByteArrayOutputStream;
 
-public class New_expertise extends AppCompatActivity {
+public class   New_expertise extends AppCompatActivity {
 
     public static final int CAMERA_ACTION_CODE= 1;
     private EditText txt_piece;

@@ -32,7 +32,7 @@ public class Login extends AppCompatActivity implements AsyncResponse {
     private EditText username;
     private EditText password;
     private Button btnLogin;
-    private static final String LOGINADDR = "http://192.168.1.6/appMobile/login.php";
+    private static final String LOGINADDR = "http://192.168.1.40/appMobile/login.php";
 
 
     @Override
@@ -43,7 +43,7 @@ public class Login extends AppCompatActivity implements AsyncResponse {
         ecouteLogin();
     }
 
-
+    // Récupère les objets présents sur le layout
     private void init() {
         username = findViewById(R.id.username_text);
         password = findViewById(R.id.password_text);
@@ -55,7 +55,7 @@ public class Login extends AppCompatActivity implements AsyncResponse {
     private void ecouteLogin() {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-
+                // Récupère le contenu des objets et les ajoutes dans une liste
                 ArrayList list = new ArrayList();
                 list.add(username.getText());
                 list.add(password.getText());
@@ -73,9 +73,13 @@ public class Login extends AppCompatActivity implements AsyncResponse {
     private void requestLogin(ArrayList donnee) {
         Log.d("request", "requestLogin: "+ donnee.get(0) + donnee.get(1));
 
+        // Création de la classe accesDonnees
         AccesHTTP accesDonnees = new AccesHTTP();
+
+        // Donne cette objet comme delegate
         accesDonnees.delegate = this;
 
+        // Ajoute à la liste parametres des pairs d'éléments
         accesDonnees.addParams("login", donnee.get(0).toString());
         accesDonnees.addParams("password", donnee.get(1).toString());
 

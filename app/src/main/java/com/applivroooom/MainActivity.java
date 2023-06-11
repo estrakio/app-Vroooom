@@ -16,7 +16,9 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // Surcharger la classe onCreate
         super.onCreate(savedInstanceState);
+        // Changer la page affiché
         setContentView(R.layout.splash_screen);
 
         Runnable runnable = new Runnable() {
